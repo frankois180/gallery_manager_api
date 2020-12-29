@@ -1,6 +1,7 @@
 package com.wolox.gallery.infrastructure.adapter.placeholder.delegate;
 
-import com.wolox.gallery.infrastructure.adapter.placeholder.dto.UserDto;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.PhotoResponse;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.user.UserResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.feing.PlaceholderFeignClient;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,11 @@ public class PlaceholderDelegate {
         this.placeholderFeignClient = placeholderFeignClient;
     }
 
-    public List<UserDto> findAllUsers() {
+    public List<UserResponse> findAllUsers() {
         return placeholderFeignClient.findAllUsers();
+    }
+
+    public  List<PhotoResponse> findAllPhotos(){
+        return  placeholderFeignClient.findAllPhotos();
     }
 }

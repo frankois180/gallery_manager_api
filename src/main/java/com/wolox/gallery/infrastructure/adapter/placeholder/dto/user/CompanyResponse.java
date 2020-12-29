@@ -1,4 +1,4 @@
-package com.wolox.gallery.infrastructure.adapter.placeholder.dto;
+package com.wolox.gallery.infrastructure.adapter.placeholder.dto.user;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CompanyDto {
+public class CompanyResponse {
 
     private String name;
     private String catchPhrase;

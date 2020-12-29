@@ -1,7 +1,7 @@
 package com.wolox.gallery.application.mapper;
 
 import com.wolox.gallery.domain.model.user.User;
-import com.wolox.gallery.infrastructure.contract.UserDto;
+import com.wolox.gallery.application.dto.user.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

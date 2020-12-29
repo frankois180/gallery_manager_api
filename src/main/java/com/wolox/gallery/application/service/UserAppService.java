@@ -3,7 +3,7 @@ package com.wolox.gallery.application.service;
 
 import com.wolox.gallery.application.mapper.UserAppMapper;
 import com.wolox.gallery.domain.port.external.UserExternalPort;
-import com.wolox.gallery.infrastructure.contract.UserDto;
+import com.wolox.gallery.application.dto.user.UserDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

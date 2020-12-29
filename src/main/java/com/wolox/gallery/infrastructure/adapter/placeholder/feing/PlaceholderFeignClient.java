@@ -1,6 +1,7 @@
 package com.wolox.gallery.infrastructure.adapter.placeholder.feing;
 
-import com.wolox.gallery.infrastructure.adapter.placeholder.dto.UserDto;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.PhotoResponse;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.user.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -19,7 +20,15 @@ public interface PlaceholderFeignClient {
     @GetMapping(
             value = "${feign.placeholder.resources.users}", produces = APPLICATION_JSON_VALUE
     )
-    List<UserDto> findAllUsers();
+    List<UserResponse> findAllUsers();
+
+    /**
+     * Method to obtain all photos
+     */
+    @GetMapping(
+            value = "${feign.placeholder.resources.photos}", produces = APPLICATION_JSON_VALUE
+    )
+    List<PhotoResponse> findAllPhotos();
 
 }
 

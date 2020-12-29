@@ -1,4 +1,4 @@
-package com.wolox.gallery.infrastructure.contract;
+package com.wolox.gallery.application.dto.user;
 
 
 import lombok.Getter;

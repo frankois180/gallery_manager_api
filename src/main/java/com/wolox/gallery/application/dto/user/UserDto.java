@@ -1,4 +1,4 @@
-package com.wolox.gallery.infrastructure.adapter.placeholder.dto;
+package com.wolox.gallery.application.dto.user;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,6 @@ public class UserDto {
     private String email;
     private String phone;
     private String website;
-    AddressDto address;
-    CompanyDto company;
+    private AddressDto address;
 
 }
