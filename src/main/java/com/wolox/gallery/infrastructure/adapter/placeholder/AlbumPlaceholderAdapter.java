@@ -1,6 +1,7 @@
 package com.wolox.gallery.infrastructure.adapter.placeholder;
 
 
+import com.wolox.gallery.domain.model.album.Album;
 import com.wolox.gallery.domain.model.album.Photo;
 import com.wolox.gallery.domain.port.external.AlbumExternalPort;
 import com.wolox.gallery.infrastructure.adapter.placeholder.delegate.PlaceholderDelegate;
@@ -23,6 +24,16 @@ public class AlbumPlaceholderAdapter implements AlbumExternalPort {
 
         return placeholderDelegate.findAllPhotos().stream()
                 .map(albumPlaceholderMapper::responsePhotoToDomainPhoto)
+                .collect(Collectors.toList());
+
+    }
+
+
+    @Override
+    public List<Album> findAllAlbumsByUserId(int userId) {
+
+        return placeholderDelegate.findAllAlbumsByUserId(userId).stream()
+                .map(albumPlaceholderMapper::responseAlbumToDomainAlbum)
                 .collect(Collectors.toList());
 
     }

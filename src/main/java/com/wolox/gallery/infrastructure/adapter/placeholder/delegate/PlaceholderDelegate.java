@@ -1,6 +1,8 @@
 package com.wolox.gallery.infrastructure.adapter.placeholder.delegate;
 
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.AlbumResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.PhotoResponse;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.param.UserIdParam;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.user.UserResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.feing.PlaceholderFeignClient;
 import org.springframework.stereotype.Component;
@@ -22,5 +24,12 @@ public class PlaceholderDelegate {
 
     public  List<PhotoResponse> findAllPhotos(){
         return  placeholderFeignClient.findAllPhotos();
+    }
+
+    public List<AlbumResponse> findAllAlbumsByUserId(int userId) {
+
+        UserIdParam userIdQueryParam = new UserIdParam(userId);
+        return placeholderFeignClient.findAllAlbumsByUserId(userIdQueryParam);
+
     }
 }
