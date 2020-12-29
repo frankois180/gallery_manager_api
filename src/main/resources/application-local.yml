@@ -34,3 +34,6 @@ feign:
       albums: albums
       comments: comments
       posts: posts
+
+security:
+    enable: false
