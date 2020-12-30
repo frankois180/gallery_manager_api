@@ -2,15 +2,15 @@ package com.wolox.gallery.domain.model.album;
 
 
 import com.wolox.gallery.domain.model.user.User;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Album {
 
     private int id;

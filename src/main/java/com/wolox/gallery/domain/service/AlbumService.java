@@ -47,10 +47,6 @@ public class AlbumService {
         return albumExternalPort.findAllAlbums();
     }
 
-    public Album findAlbumById(int albumId) {
-        return albumExternalPort.findAlbumById(albumId);
-    }
-
     public List<Album> findAllAlbumsByUserId(int userId) {
 
         List<Album> albumListWithPermission = albumRepositoryPort.findByUserId(userId);
