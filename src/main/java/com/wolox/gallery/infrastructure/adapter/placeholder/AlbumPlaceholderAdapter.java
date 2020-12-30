@@ -38,5 +38,11 @@ public class AlbumPlaceholderAdapter implements AlbumExternalPort {
 
     }
 
+    @Override
+    public List<Album> findAllAlbums() {
+        return placeholderDelegate.findAllAlbums()
+                .stream().map(albumPlaceholderMapper::responseAlbumToDomainAlbum)
+                .collect(Collectors.toList());
+    }
 
 }

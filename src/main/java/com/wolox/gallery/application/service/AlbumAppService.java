@@ -1,7 +1,9 @@
 package com.wolox.gallery.application.service;
 
+import com.wolox.gallery.application.dto.album.AlbumDto;
 import com.wolox.gallery.application.dto.album.PhotoDto;
 import com.wolox.gallery.application.mapper.AlbumAppMapper;
+import com.wolox.gallery.domain.model.album.Album;
 import com.wolox.gallery.domain.model.album.Photo;
 import com.wolox.gallery.domain.service.AlbumService;
 import lombok.AllArgsConstructor;
@@ -28,4 +30,11 @@ public class AlbumAppService {
                 .map(albumAppMapper::domainPhotoToDtoPhoto).collect(Collectors.toList());
 
     }
+
+    public List<AlbumDto> findAllAlbums() {
+        return albumService.findAllAlbums()
+                .stream().map(albumAppMapper::domainAlbumToDtoAlbum)
+                .collect(Collectors.toList());
+    }
+
 }

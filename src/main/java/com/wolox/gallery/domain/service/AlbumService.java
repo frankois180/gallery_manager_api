@@ -37,4 +37,10 @@ public class AlbumService {
         return photoList;
 
     }
+
+    public List<Album> findAllAlbums() {
+
+        return albumExternalPort.findAllAlbums();
+
+    }
 }

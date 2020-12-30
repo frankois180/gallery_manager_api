@@ -4,6 +4,7 @@ package com.wolox.gallery.infrastructure.adapter;
 import com.wolox.gallery.domain.exception.UnexpectedException;
 import com.wolox.gallery.infrastructure.adapter.repository.jpa.UserJpaRepository;
 import com.wolox.gallery.infrastructure.adapter.repository.entity.UserEntity;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -18,15 +19,10 @@ import java.util.List;
 import static com.wolox.gallery.domain.exception.GalleryNotificationCode.ACCESS_DENIED;
 
 @Component
+@RequiredArgsConstructor
 public class UserDetailsAdapter implements UserDetailsService {
 
     private final UserJpaRepository userJpaRepository;
-
-    public UserDetailsAdapter(UserJpaRepository userJpaRepository) {
-
-        this.userJpaRepository = userJpaRepository;
-
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

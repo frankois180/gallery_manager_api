@@ -32,4 +32,8 @@ public class PlaceholderDelegate {
         return placeholderFeignClient.findAllAlbumsByUserId(userIdQueryParam);
 
     }
+
+    public  List<AlbumResponse> findAllAlbums(){
+        return placeholderFeignClient.findAllAlbums();
+    }
 }

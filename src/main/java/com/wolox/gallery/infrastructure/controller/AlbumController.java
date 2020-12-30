@@ -2,16 +2,16 @@ package com.wolox.gallery.infrastructure.controller;
 
 import com.wolox.gallery.application.service.AlbumAppService;
 import com.wolox.gallery.infrastructure.controller.dto.ApiResponseDto;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/albums")
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AlbumController {
 
     private final AlbumAppService albumAppService;
@@ -32,5 +32,13 @@ public class AlbumController {
                 .data(albumAppService.findAllPhotosByUserId(userId))
                 .build();
 
+    }
+
+    @GetMapping
+    public ApiResponseDto findAllAlbums() {
+
+        return ApiResponseDto.builder()
+                .data(albumAppService.findAllAlbums())
+                .build();
     }
 }
