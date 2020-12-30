@@ -3,7 +3,10 @@ package com.wolox.gallery.infrastructure.adapter.placeholder.feing;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.AlbumResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.PhotoResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.param.IdParam;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.param.NameParam;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.param.UserIdParam;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.post.CommentResponse;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.post.PostResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.user.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
@@ -51,6 +54,30 @@ public interface PlaceholderFeignClient {
      */
     @GetMapping(value = "${feign.placeholder.resources.users}", produces = APPLICATION_JSON_VALUE)
     List<UserResponse> findUserById(@SpringQueryMap IdParam idParam);
+
+    /**
+     * Method that obtain all comments by its name
+     */
+    @GetMapping(
+            value = "${feign.placeholder.resources.comments}", produces = APPLICATION_JSON_VALUE
+    )
+    List<CommentResponse> findAllCommentsByName(@SpringQueryMap NameParam nameParam);
+
+    /**
+     * Method that obtain all posts by user id
+     */
+    @GetMapping(
+            value = "${feign.placeholder.resources.posts}", produces = APPLICATION_JSON_VALUE
+    )
+    List<PostResponse> findAllPostsByUserId(@SpringQueryMap UserIdParam userIdParam);
+
+    /**
+     * Method that obtain all comments
+     */
+    @GetMapping(
+            value = "${feign.placeholder.resources.comments}", produces = APPLICATION_JSON_VALUE
+    )
+    List<CommentResponse> findAllComments();
 
 }
 
