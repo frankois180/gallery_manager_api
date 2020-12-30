@@ -1,7 +1,9 @@
 package com.wolox.gallery.domain.service;
 
 import com.wolox.gallery.domain.exception.DataNotFoundException;
+
 import static com.wolox.gallery.domain.exception.GalleryNotificationCode.DATA_NOT_FOUND;
+
 import com.wolox.gallery.domain.model.album.Album;
 import com.wolox.gallery.domain.model.album.Photo;
 import com.wolox.gallery.domain.port.external.AlbumExternalPort;
@@ -33,14 +35,15 @@ public class AlbumService {
         if (photoList.isEmpty()) {
             throw new DataNotFoundException(DATA_NOT_FOUND);
         }
-
         return photoList;
 
     }
 
     public List<Album> findAllAlbums() {
-
         return albumExternalPort.findAllAlbums();
+    }
 
+    public Album findAlbumById(int albumId) {
+        return albumExternalPort.findAlbumById(albumId);
     }
 }

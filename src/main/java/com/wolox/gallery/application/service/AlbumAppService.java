@@ -37,4 +37,8 @@ public class AlbumAppService {
                 .collect(Collectors.toList());
     }
 
+    public AlbumDto findAlbumById(int albumId) {
+        return albumAppMapper.domainAlbumToDtoAlbum(albumService.findAlbumById(albumId));
+    }
+
 }

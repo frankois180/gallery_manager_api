@@ -1,6 +1,8 @@
 package com.wolox.gallery.infrastructure.adapter.placeholder;
 
 
+import com.wolox.gallery.domain.exception.DataNotFoundException;
+import static com.wolox.gallery.domain.exception.GalleryNotificationCode.DATA_NOT_FOUND;
 import com.wolox.gallery.domain.model.album.Album;
 import com.wolox.gallery.domain.model.album.Photo;
 import com.wolox.gallery.domain.port.external.AlbumExternalPort;
@@ -43,6 +45,16 @@ public class AlbumPlaceholderAdapter implements AlbumExternalPort {
         return placeholderDelegate.findAllAlbums()
                 .stream().map(albumPlaceholderMapper::responseAlbumToDomainAlbum)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Album findAlbumById(int albumId) {
+
+        return placeholderDelegate.findAlbumById(albumId).stream()
+                .findFirst()
+                .map(albumPlaceholderMapper::responseAlbumToDomainAlbum)
+                .orElseThrow(() -> new DataNotFoundException(DATA_NOT_FOUND));
+
     }
 
 }

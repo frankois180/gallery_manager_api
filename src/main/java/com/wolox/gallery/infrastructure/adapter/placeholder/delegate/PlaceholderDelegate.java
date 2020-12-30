@@ -2,6 +2,7 @@ package com.wolox.gallery.infrastructure.adapter.placeholder.delegate;
 
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.AlbumResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.PhotoResponse;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.param.IdParam;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.param.UserIdParam;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.user.UserResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.feing.PlaceholderFeignClient;
@@ -22,8 +23,8 @@ public class PlaceholderDelegate {
         return placeholderFeignClient.findAllUsers();
     }
 
-    public  List<PhotoResponse> findAllPhotos(){
-        return  placeholderFeignClient.findAllPhotos();
+    public List<PhotoResponse> findAllPhotos() {
+        return placeholderFeignClient.findAllPhotos();
     }
 
     public List<AlbumResponse> findAllAlbumsByUserId(int userId) {
@@ -33,7 +34,14 @@ public class PlaceholderDelegate {
 
     }
 
-    public  List<AlbumResponse> findAllAlbums(){
+    public List<AlbumResponse> findAllAlbums() {
         return placeholderFeignClient.findAllAlbums();
+    }
+
+    public List<AlbumResponse> findAlbumById(int albumId) {
+
+        IdParam queryParam = new IdParam(albumId);
+        return placeholderFeignClient.findAlbumById(queryParam);
+
     }
 }

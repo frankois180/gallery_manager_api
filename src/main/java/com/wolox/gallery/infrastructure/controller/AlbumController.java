@@ -25,8 +25,8 @@ public class AlbumController {
 
     }
 
-    @GetMapping("/photos/{idUser}")
-    public ApiResponseDto findAllPhotosByUserId(@PathVariable Integer userId) {
+    @GetMapping("/photos/{userId}")
+    public ApiResponseDto findAllPhotosByUserId(@PathVariable(value = "userId") Integer userId) {
 
         return ApiResponseDto.builder()
                 .data(albumAppService.findAllPhotosByUserId(userId))
@@ -39,6 +39,13 @@ public class AlbumController {
 
         return ApiResponseDto.builder()
                 .data(albumAppService.findAllAlbums())
+                .build();
+    }
+
+    @GetMapping("/{albumId}")
+    public ApiResponseDto findAlbumById(@PathVariable int albumId) {
+        return ApiResponseDto.builder()
+                .data(albumAppService.findAlbumById(albumId))
                 .build();
     }
 }

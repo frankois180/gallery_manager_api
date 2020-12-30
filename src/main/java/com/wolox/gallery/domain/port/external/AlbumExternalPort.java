@@ -11,7 +11,6 @@ public interface AlbumExternalPort {
      */
     List<Photo> findAllPhotos();
 
-
     /**
      * Method that obtain a album list by user id
      */
@@ -21,4 +20,11 @@ public interface AlbumExternalPort {
      * method to obtain albums
      */
     List<Album> findAllAlbums();
+
+    /**
+     * Method to obtain an album by id
+     */
+    Album findAlbumById(int albumId);
+
+
 }

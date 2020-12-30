@@ -2,6 +2,7 @@ package com.wolox.gallery.infrastructure.adapter.placeholder.feing;
 
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.AlbumResponse;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.album.PhotoResponse;
+import com.wolox.gallery.infrastructure.adapter.placeholder.dto.param.IdParam;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.param.UserIdParam;
 import com.wolox.gallery.infrastructure.adapter.placeholder.dto.user.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -38,6 +39,12 @@ public interface PlaceholderFeignClient {
      */
     @GetMapping(value = "${feign.placeholder.resources.albums}", produces = APPLICATION_JSON_VALUE)
     List<AlbumResponse> findAllAlbums();
+
+    /**
+     * Method that obtain an album
+     */
+    @GetMapping(value = "${feign.placeholder.resources.albums}", produces = APPLICATION_JSON_VALUE)
+    List<AlbumResponse> findAlbumById(@SpringQueryMap IdParam idParam);
 
 }
 
