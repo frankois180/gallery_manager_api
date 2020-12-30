@@ -16,6 +16,6 @@ public class Album {
     private int id;
     private User user;
     private String title;
-    private List<Permission> permissions;
+    private List<Access> access;
 
 }

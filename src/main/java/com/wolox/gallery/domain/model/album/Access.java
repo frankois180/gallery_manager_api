@@ -6,9 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Permission {
+public class Access {
 
     private Long id;
-    private PermissionType type;
+    private AccessType type;
 
 }

@@ -42,6 +42,12 @@ public class PlaceholderDelegate {
 
         IdParam queryParam = new IdParam(albumId);
         return placeholderFeignClient.findAlbumById(queryParam);
+    }
+
+    public List<UserResponse> findUserById(int userId) {
+
+        IdParam idQueryParam = new IdParam(userId);
+        return placeholderFeignClient.findUserById(idQueryParam);
 
     }
 }

@@ -1,5 +1,9 @@
 package com.wolox.gallery.infrastructure.adapter.placeholder;
 
+import com.wolox.gallery.domain.exception.DataNotFoundException;
+
+import static com.wolox.gallery.domain.exception.GalleryNotificationCode.DATA_NOT_FOUND;
+
 import com.wolox.gallery.domain.model.user.User;
 import com.wolox.gallery.domain.port.external.UserExternalPort;
 import com.wolox.gallery.infrastructure.adapter.placeholder.delegate.PlaceholderDelegate;
@@ -25,4 +29,14 @@ public class UserPlaceholderAdapter implements UserExternalPort {
                 .collect(Collectors.toList());
 
     }
+
+    @Override
+    public User findById(int userId) {
+
+        return placeholderClientDelegate.findUserById(userId).stream()
+                .findFirst()
+                .map(userPlaceholderMapper::responseToDomain)
+                .orElseThrow(() -> new DataNotFoundException(DATA_NOT_FOUND));
+    }
+
 }

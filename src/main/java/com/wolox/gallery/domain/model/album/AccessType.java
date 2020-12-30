@@ -1,6 +1,6 @@
 package com.wolox.gallery.domain.model.album;
 
-public enum PermissionType {
+public enum AccessType {
     READ,
-    NOT_PERMISSION;
+    NOT_ACCESS;
 }

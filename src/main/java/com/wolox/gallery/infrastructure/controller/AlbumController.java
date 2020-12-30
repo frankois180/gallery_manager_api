@@ -42,10 +42,10 @@ public class AlbumController {
                 .build();
     }
 
-    @GetMapping("/{albumId}")
-    public ApiResponseDto findAlbumById(@PathVariable int albumId) {
+    @GetMapping("/{userId}")
+    public ApiResponseDto findAlbumById(@PathVariable int userId) {
         return ApiResponseDto.builder()
-                .data(albumAppService.findAlbumById(albumId))
+                .data(albumAppService.findAllAlbumsByUserId(userId))
                 .build();
     }
 }

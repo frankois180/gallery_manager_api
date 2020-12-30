@@ -46,5 +46,11 @@ public interface PlaceholderFeignClient {
     @GetMapping(value = "${feign.placeholder.resources.albums}", produces = APPLICATION_JSON_VALUE)
     List<AlbumResponse> findAlbumById(@SpringQueryMap IdParam idParam);
 
+    /**
+     * Method to obtain a user
+     */
+    @GetMapping(value = "${feign.placeholder.resources.users}", produces = APPLICATION_JSON_VALUE)
+    List<UserResponse> findUserById(@SpringQueryMap IdParam idParam);
+
 }
 
